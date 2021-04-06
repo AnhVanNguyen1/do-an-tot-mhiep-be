@@ -1,0 +1,442 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Checkout || Asbab - eCommerce HTML5 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Owl Carousel min css -->
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" th:href="@{/css/core.css}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" th:href="@{/css/shortcode/shortcodes.css}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <!-- User style -->
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/checkout/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link th:href="@{/checkout/css/mdb.min.css}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link th:href="@{/checkout/css/style.min.css}" rel="stylesheet">
+    <!-- Modernizr JS -->
+    <!-- Modernizr JS -->
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Body main wrapper start -->
+<div class="wrapper">
+    <!-- Start Header Style -->
+    <header id="htc__header" class="htc__header__area header--one">
+        <!-- Start Mainmenu Area -->
+        <div th:replace="~{fragments/menu :: menu}">Header</div>
+        <!-- End Mainmenu Area -->
+    </header>
+    <!-- End Header Area -->
+    <div class="body__overlay"></div>
+    <!-- Start Offset Wrapper -->
+    <div class="offset__wrapper">
+        <!-- Start Search Popap -->
+        <div class="search__area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search__inner">
+                            <form action="#" method="get">
+                                <input placeholder="Search here... " type="text">
+                                <button type="submit"></button>
+                            </form>
+                            <div class="search__close__btn">
+                                <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Search Popap -->
+        <!-- Start Cart Panel -->
+        <div class="shopping__cart">
+            <div class="shopping__cart__inner">
+                <div class="offsetmenu__close__btn">
+                    <a href="#"><i class="zmdi zmdi-close"></i></a>
+                </div>
+                <div class="shp__cart__wrap">
+                    <div class="shp__single__product">
+                        <div class="shp__pro__thumb">
+                            <a href="#">
+                                <img src="images/product-2/sm-smg/1.jpg" alt="product images">
+                            </a>
+                        </div>
+                        <div class="shp__pro__details">
+                            <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
+                            <span class="quantity">QTY: 1</span>
+                            <span class="shp__price">$105.00</span>
+                        </div>
+                        <div class="remove__btn">
+                            <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="shp__single__product">
+                        <div class="shp__pro__thumb">
+                            <a href="#">
+                                <img src="images/product-2/sm-smg/2.jpg" alt="product images">
+                            </a>
+                        </div>
+                        <div class="shp__pro__details">
+                            <h2><a href="product-details.html">Brone Candle</a></h2>
+                            <span class="quantity">QTY: 1</span>
+                            <span class="shp__price">$25.00</span>
+                        </div>
+                        <div class="remove__btn">
+                            <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="shoping__total">
+                    <li class="subtotal">Subtotal:</li>
+                    <li class="total__price">$130.00</li>
+                </ul>
+                <ul class="shopping__btn">
+                    <li><a href="cart.html">View Cart</a></li>
+                    <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Cart Panel -->
+    </div>
+    <!-- End Offset Wrapper -->
+    <!-- Start Bradcaump area -->
+    <div class="ht__bradcaump__area"
+         style="background: rgba(0, 0, 0, 0) url(/images/bg/logo2.jpg) no-repeat scroll center center / cover ;">
+        <div class="ht__bradcaump__wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bradcaump__inner">
+                            <nav class="bradcaump-inner">
+                                <a class="breadcrumb-item" href="index.html">Home</a>
+                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                <span class="breadcrumb-item active">checkout</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Bradcaump area -->
+    <!-- cart-main-area start -->
+    <!--Main layout-->
+    <main class="mt-5 pt-4">
+        <div class="container wow fadeIn">
+
+            <!-- Heading -->
+            <h2 class="my-5 h2 text-center">Checkout form</h2>
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-8 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card content-->
+                        <form class="card-body">
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+
+                                    <!--firstName-->
+                                    <div class="md-form ">
+                                        <input type="text" id="firstName" class="form-control">
+                                        <label for="firstName" class="">First name</label>
+                                    </div>
+
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+
+                                    <!--lastName-->
+                                    <div class="md-form">
+                                        <input type="text" id="lastName" class="form-control">
+                                        <label for="lastName" class="">Last name</label>
+                                    </div>
+
+                                </div>
+                                <!--Grid column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <!--Username-->
+                            <div class="md-form input-group pl-0 mb-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                </div>
+                                <input type="text" class="form-control py-0" placeholder="Username"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+                            <!--email-->
+                            <div class="md-form mb-5">
+                                <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
+                                <label for="email" class="">Email (optional)</label>
+                            </div>
+
+                            <!--address-->
+                            <div class="md-form mb-5">
+                                <input type="text" id="address" class="form-control" placeholder="1234 Main St">
+                                <label for="address" class="">Address</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <label>Shipping address is the same as
+                                    my billing address</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <label class="custom-control-label">Save this information for next
+                                    time</label>
+                            </div>
+
+                            <hr>
+
+                            <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input"
+                                           checked required>
+                                    <label class="custom-control-label" for="credit">Credit card</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
+                                           required>
+                                    <label class="custom-control-label" for="debit">Debit card</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input"
+                                           required>
+                                    <label class="custom-control-label" for="paypal">Paypal</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+                        </form>
+
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-4">
+
+                    <!-- Heading -->
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Your cart</span>
+                        <span class="badge badge-secondary badge-pill">3</span>
+                    </h4>
+
+                    <!-- Cart -->
+                    <ul class="list-group mb-3 z-depth-1">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Product name</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Second product</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$8</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Third item</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">-$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-co`ntent-between">
+                            <span>Total (USD)</span>
+                            <strong>$20</strong>
+                        </li>
+                    </ul>
+                    <!-- Cart -->
+
+                    <!-- Promo code -->
+                    <form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo code"
+                                   aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Promo code -->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+    </main>
+    <!--Main layout-->
+    <!-- cart-main-area end -->
+    <!-- Start Footer Area -->
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
+    <!-- End Footer Style -->
+</div>
+<!-- Body main wrapper end -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<!-- jquery latest version -->
+<script th:src="@{/js/vendor/jquery-3.2.1.min.js}"></script>
+<!-- Bootstrap framework js -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- All js plugins included in this file. -->
+<script th:src="@{/js/plugins.js}"></script>
+<script th:src="@{/js/slick.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<!-- Waypoints.min.js. -->
+<script th:src="@{/js/waypoints.min.js}"></script>
+<!-- Main js file that contents all jQuery plugins activation. -->
+<script th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/checkout/js/jquery-3.4.1.min.js}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" th:src="@{/checkout/js/popper.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:src="@{/checkout/js/bootstrap.min.js}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" th:src="@{/checkout/js/mdb.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+</script>
+<script>
+    const apiUrl = "https://sheltered-anchorage-60344.herokuapp.com";
+    const apiEndpointDistrict = apiUrl + '/district/?idProvince=';
+    const apiEndpointCommune = apiUrl + '/commune/?idDistrict=';
+
+    async function getDistrict(idProvince) {
+        const {data: districtList} = await axios.get(apiEndpointDistrict + idProvince);
+        return districtList
+    }
+
+    async function getCommune(idDistrict) {
+        const {data: communeList} = await axios.get(apiEndpointCommune + idDistrict);
+        return communeList
+    }
+
+    document.querySelector('#city-province').addEventListener("change", async () => {// get district and town when changing city/province
+        const idProvince = document.querySelector('#city-province').value;
+        const districtList = await getDistrict(idProvince) || [];
+        let outputDistrict = "<option value='0'>&nbspChọn Quận/Huyện...</option>";
+        let outputCommune = "<option value='0'>&nbspChọn Phường/Xã...</option>";
+        for (let i = 0; i < districtList.length; i++) {
+            if (districtList[i].idProvince === idProvince) {
+                outputDistrict += `<option value='${districtList[i].idDistrict}'>&nbsp${districtList[i].name}</option>`;
+            }
+        }
+        document.querySelector('#district-town').innerHTML = outputDistrict;
+        document.querySelector('#ward-commune').innerHTML = outputCommune;
+        document.querySelector('.district-town-select > span').style.display = "none";
+    })
+
+    document.querySelector('#district-town').addEventListener("change", async () => {// get ward and commune when changing district/town
+        const idDistrict = document.querySelector('#district-town').value;
+        const communeList = await getCommune(idDistrict) || [];
+        let outputCommune = "<option value='0'>&nbspChọn Phường/Xã...</option>";
+        for (let i = 0; i < communeList.length; i++) {
+            if (communeList[i].idDistrict === idDistrict) {
+                outputCommune += `<option value='${communeList[i].idCommune}'>&nbsp${communeList[i].name}</option>`;
+            }
+        }
+        document.querySelector('#ward-commune').innerHTML = outputCommune;
+        document.querySelector('.ward-commune-select > span').style.display = "none";
+    })
+</script>
+
+</body>
+
+</html>

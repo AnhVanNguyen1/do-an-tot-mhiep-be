@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<!-- Start Header Style -->
+<header id="htc__header" class="htc__header__area header--one" th:fragment="header">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="/" class="active"><i class="lnr lnr-home"></i> <span>Trang Chủ</span></a></li>
+                    <li><a href="/admin/product_view" class=""> <span>Product</span></a></li>
+                    <li><a href="/admin/categoryList" class=""> <span>Category</span></a></li>
+                    <li><a href="/admin/account" class=""><span>User</span></a></li>
+                    <li><a href="/admin/order" class=""><span>Order</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- End Header Area -->
+</body>
+</html>

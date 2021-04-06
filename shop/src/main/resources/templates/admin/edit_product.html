@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Charts | Klorofil - Free Bootstrap Dashboard Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" th:href="@{/admin/assets/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/vendor/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/vendor/linearicons/style.css}">
+    <link rel="stylesheet" th:href="@{/admin/assets/vendor/chartist/css/chartist-custom.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/admin/assets/css/main.css}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" th:href="@{/admin/assets/css/demo.css}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/admin/assets/img/apple-icon.png}">
+    <link rel="icon" type="image/png" sizes="96x96" th:href="@{/admin/assets/img/favicon.png}">
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <div th:replace="~{fragments/header_admin :: header}">Header</div>
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <form id="quickForm" method="post" th:action="@{/admin/edit_product}" th:object="${productRequest}"
+                      enctype="multipart/form-data">
+                    <input type="text" class="form-control" style="display: none" th:field="*{id}">
+                    <input type="text" class="form-control" style="display: none" th:field="*{photo}">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name Product</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên sản phẩm"
+                                   th:field="*{name}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">summary</label>
+                            <input type="text" class="form-control" placeholder="Tên sản phẩm" th:field="*{summary}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Title</label>
+                            <input type="text" class="form-control" placeholder="Tên sản phẩm" th:field="*{metaTitle}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type</label>
+                            <input type="number" class="form-control" placeholder="type" th:field="*{type}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Giá"
+                                   th:field="*{price}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Discount(Giảm giá)</label>
+                            <input type="number" class="form-control" th:field="*{discount}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Quantity</label>
+                            <input type="number" class="form-control" th:field="*{quantity}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">content</label>
+                            <input type="text" class="form-control" th:field="*{content}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Image</label>
+                            <img  th:src="*{photo}" class="avatar"  alt="product images" width="290px"
+                                  height="350px" src="https://placehold.it/290x350">
+                            <h6>Upload a different photo...</h6>
+                            <input type="file" class="text-center center-block file-upload" th:field="*{photos}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Category</label>
+                            <select class="form-control" id="category" th:field="*{categoryId}">
+                                <th:block th:each="category1 : ${category}">
+                                    <option th:text="${category1.name}" th:value="${category1.id}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary"><a href="/admin/categoryList"></a>Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class=" clearfix">
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All
+                Rights Reserved.</p>
+        </div>
+    </footer>
+</div>
+<!-- END WRAPPER -->
+<!-- Javascript -->
+<script th:src="@{/admin/assets/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/admin/assets/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/admin/assets/vendor/chartist/js/chartist.min.js}"></script>
+<script th:src="@{/admin/assets/scripts/klorofil-common.js}"></script>
+
+<script>
+    $(function () {
+        var options;
+
+        var data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            series: [
+                [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+            ]
+        };
+
+        // line chart
+        options = {
+            height: "300px",
+            showPoint: true,
+            axisX: {
+                showGrid: false
+            },
+            lineSmooth: false,
+        };
+
+        new Chartist.Line('#demo-line-chart', data, options);
+
+        // bar chart
+        options = {
+            height: "300px",
+            axisX: {
+                showGrid: false
+            },
+        };
+
+        new Chartist.Bar('#demo-bar-chart', data, options);
+
+
+        // area chart
+        options = {
+            height: "270px",
+            showArea: true,
+            showLine: false,
+            showPoint: false,
+            axisX: {
+                showGrid: false
+            },
+            lineSmooth: false,
+        };
+
+        new Chartist.Line('#demo-area-chart', data, options);
+
+
+        // multiple chart
+        var data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            series: [{
+                name: 'series-real',
+                data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+            }, {
+                name: 'series-projection',
+                data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+            }]
+        };
+
+        var options = {
+            fullWidth: true,
+            lineSmooth: false,
+            height: "270px",
+            low: 0,
+            high: 'auto',
+            series: {
+                'series-projection': {
+                    showArea: true,
+                    showPoint: false,
+                    showLine: false
+                },
+            },
+            axisX: {
+                showGrid: false,
+
+            },
+            axisY: {
+                showGrid: false,
+                onlyInteger: true,
+                offset: 0,
+            },
+            chartPadding: {
+                left: 20,
+                right: 20
+            }
+        };
+
+        new Chartist.Line('#multiple-chart', data, options);
+
+    });
+</script>
+<script>
+    const fileUploader = document.getElementById('file-uploader');
+
+    fileUploader.addEventListener('change', (event) => {
+        const files = event.target.files;
+        console.log('files', files);
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+
+        var readURL = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.avatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $(".file-upload").on('change', function(){
+            readURL(this);
+        });
+    });
+</script>
+</body>
+
+</html>
+

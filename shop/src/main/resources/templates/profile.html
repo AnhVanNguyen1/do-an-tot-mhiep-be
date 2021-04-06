@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Product Details || Asbab - eCommerce HTML5 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Owl Carousel min css -->
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" th:href="@{/css/core.css}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" th:href="@{/css/shortcode/shortcodes.css}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <!-- User style -->
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <!-- Modernizr JS -->
+    <!-- Modernizr JS -->
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script type="text/css">
+    </script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Body main wrapper start -->
+<div class="wrapper">
+    <div th:replace="~{fragments/menu :: menu}">Header</div>
+    <!-- Start Bradcaump area -->
+    <hr>
+    <div class="container bootstrap snippet">
+        <div class="row" th:>
+            <form class="form" th:action="@{/profile}" method="post" id="registrationForm" th:object="${accountDTO}">
+                <div class="col-sm-3"><!--left col-->
+                    <div class="text-center">
+                        <img th:src="*{photo}"
+                             class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" class="text-center center-block file-upload" th:field="*{file}">
+                    </div>
+                    </hr><br>
+                </div><!--/col-3-->
+                <div class="col-sm-9">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <hr>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{id}" style="display: none">
+                                <div class="col-xs-6">
+                                    <label for="first_name" th:field="*{firstName}"><h4>First name</h4></label>
+                                    <input type="text" class="form-control"  id="first_name"
+                                           placeholder="first name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="last_name"><h4>Last name</h4></label>
+                                    <input type="text" th:field="*{lastName}" class="form-control"  id="last_name"
+                                           placeholder="last name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="mobile"><h4>Mobile</h4></label>
+                                    <input type="text" th:field="*{mobile}" class="form-control" name="mobile" id="mobile"
+                                           placeholder="enter mobile number">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="email"><h4>Email</h4></label>
+                                    <input type="email" th:field="*{email}" class="form-control"  id="email"
+                                           placeholder="you@email.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit"><i
+                                            class="glyphicon glyphicon-ok-sign"></i> Save
+                                    </button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                        </div><!--/tab-pane-->
+                    </div><!--/tab-pane-->
+                </div><!--/tab-content-->
+            </form>
+        </div><!--/col-9-->
+    </div><!--/row-->
+    <!-- End Product Area -->
+    <!-- Start Footer Area -->
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
+    <!-- End Footer Style -->
+</div>
+<!-- Body main wrapper end -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- jquery latest version -->
+<script th:src="@{/js/vendor/jquery-3.2.1.min.js}"></script>
+<!-- Bootstrap framework js -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- All js plugins included in this file. -->
+<script th:src="@{/js/plugins.js}"></script>
+<script th:src="@{/js/slick.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<!-- Waypoints.min.js. -->
+<script th:src="@{/js/waypoints.min.js}"></script>
+<!-- Main js file that contents all jQuery plugins activation. -->
+<script th:src="@{/js/main.js}"></script>
+<script>
+    $(document).ready(function () {
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.avatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+    });
+</script>
+
+</body>
+
+</html>

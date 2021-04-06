@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cart || Asbab - eCommerce HTML5 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- All css files are included here. -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Owl Carousel min css -->
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" th:href="@{/css/core.css}">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" th:href="@{/css/shortcode/shortcodes.css}">
+    <!-- Theme main style -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <!-- Responsive css -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- User style -->
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <!-- Modernizr JS -->
+    <!-- Modernizr JS -->
+    <script th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+        <!-- Start Header Style -->
+        <div th:replace="~{fragments/menu :: menu}">Header</div>
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(/images/bg/logo2.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="bradcaump__inner">
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                  <span class="breadcrumb-item active">shopping cart</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- cart-main-area start -->
+        <div class="cart-main-area ptb--100 bg__white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12" >
+                        <form th:action="@{/cartItem-quantity}" method="post">
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">products</th>
+                                            <th class="product-name">name of products</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                            <th class="product-remove">Update</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="mycart: ${cartItemDTOS}">
+                                            <input type="hidden" th:value="${mycart.product.id}" name="id"/>
+                                            <td class="product-thumbnail"><a href="#"><img th:src="${mycart.photo}" alt="product img"/></a></td>
+                                            <td class="product-name"><a th:href="@{/product-detail/{productId}((productId =${mycart.product.id}))}" th:text="${mycart.product.name}">New Dress For Sunday</a>
+                                                <ul  class="pro__prize">
+                                                    <li class="old__prize" th:text="${mycart.product.price}">$82.5</li>
+                                                    <li>$75.2</li>
+                                                </ul>
+                                            </td>
+                                            <td class="product-price"><span class="amount" th:text="${mycart.product.price}">£165.00</span></td>
+                                            <td class="product-quantity"><input type="number" th:value="${mycart.quantity}" name="quantity"/></td>
+                                            <td class="product-subtotal" th:text="${mycart.product.price}*${mycart.quantity}">£165.00</td>
+                                            <td class="product-remove"><a th:href="@{/cart/remove-cartItem/{cartItemId}(cartItemId=${mycart.id})}"  onclick="return confirm('Are you sure you want to delete this item?')"><i class="icon-trash icons"></i></a></td>
+                                            <td class="product-remove"><button type="submit" class="btn btn-light">UPDATE</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="buttons-cart--inner">
+                                        <div class="buttons-cart">
+                                            <a th:href="@{/product-grid}">Continue Shopping</a>
+                                        </div>
+                                        <div class="buttons-cart checkout--btn">
+                                            <a th:href="@{/order/checkout}">order</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="ht__coupon__code">
+                                        <span>enter your discount code</span>
+                                        <div class="coupon__box">
+                                            <input type="text" placeholder="">
+                                            <div class="ht__cp__btn">
+                                                <a href="#">enter</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12 smt-40 xmt-40">
+                                    <div class="htc__cart__total">
+                                        <h6>cart total</h6>
+                                        <div class="cart__desk__list">
+                                            <ul class="cart__desc">
+                                                <li>cart total</li>
+                                                <li>tax</li>
+                                                <li>shipping</li>
+                                            </ul>
+                                            <ul class="cart__price">
+                                                <li>$909.00</li>
+                                                <li>$9.00</li>
+                                                <li>0</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cart__total">
+                                            <span>order total</span>
+                                            <span>$918.00</span>
+                                        </div>
+                                        <ul class="payment__btn">
+                                            <li class="active"><a href="#">payment</a></li>
+                                            <li><a href="#">continue shopping</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart-main-area end -->
+        <!-- End Banner Area -->
+        <!-- Start Footer Area -->
+        <div th:insert="~{fragments/footer :: footer}">&copy; 2017 The Static Templates</div>
+        <!-- End Footer Style -->
+    </div>
+    <!-- Body main wrapper end -->
+
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <!-- jquery latest version -->
+    <script th:src="@{/js/vendor/jquery-3.2.1.min.js}"></script>
+    <!-- Bootstrap framework js -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- All js plugins included in this file. -->
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/slick.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <!-- Waypoints.min.js. -->
+    <script th:src="@{/js/waypoints.min.js}"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
