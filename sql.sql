@@ -1,5 +1,5 @@
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
---
+--rrr
 -- Host: 127.0.0.1    Database: tttn_database
 -- ------------------------------------------------------
 -- Server version	8.0.13
@@ -435,3 +435,8 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-04-06  7:28:27
+
+
+-- Dump completed on 2021-04-06  7:28:27
+
+--thuy1
